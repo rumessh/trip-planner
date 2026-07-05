@@ -110,35 +110,35 @@ export default function PackingChecklist() {
   };
 
   return (
-    <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm" id="packing-checklist">
+    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-2xl p-6 shadow-sm transition-colors duration-300" id="packing-checklist">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div>
-          <h3 className="text-xl font-display font-semibold text-slate-900 flex items-center gap-2">
+          <h3 className="text-xl font-display font-semibold text-slate-900 dark:text-white flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-emerald-500" />
             Family Luggage Packing Assistant
           </h3>
-          <p className="text-slate-500 text-sm mt-0.5">
-            Individual checklists for toddler play water clothes, elder comfort items, and ticket passes.
+          <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5">
+            Individual checklists for toddler play water clothes, Leo's dinosaur notebooks, and essential ticket passes.
           </p>
         </div>
         
         <button
           id="btn-reset-packing"
           onClick={resetList}
-          className="text-xs font-semibold text-slate-500 hover:text-red-500 bg-slate-50 hover:bg-red-50 px-3.5 py-1.5 rounded-lg border border-slate-100 hover:border-red-100 transition-colors self-start md:self-auto cursor-pointer"
+          className="text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-red-500 bg-slate-50 dark:bg-slate-950 hover:bg-red-50 px-3.5 py-1.5 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-red-100 dark:hover:border-red-900/40 transition-colors self-start md:self-auto cursor-pointer"
         >
           Reset List
         </button>
       </div>
 
       {/* Progress Bar */}
-      <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800 rounded-xl p-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex-1">
-          <div className="flex justify-between items-center text-xs font-semibold text-slate-700 mb-1.5 uppercase font-mono">
+          <div className="flex justify-between items-center text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5 uppercase font-mono">
             <span>Overall Luggage Ready</span>
-            <span className="text-sky-600">{packedCount} / {totalCount} Items Packed ({percentPacked}%)</span>
+            <span className="text-sky-600 dark:text-sky-400">{packedCount} / {totalCount} Items Packed ({percentPacked}%)</span>
           </div>
-          <div className="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+          <div className="w-full bg-slate-250 dark:bg-slate-850 h-2.5 rounded-full overflow-hidden">
             <div 
               className="bg-sky-500 h-full rounded-full transition-all duration-500" 
               style={{ width: `${percentPacked}%` }}
@@ -148,12 +148,14 @@ export default function PackingChecklist() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap gap-1.5 mb-6 pb-2 border-b border-slate-100">
+      <div className="flex flex-wrap gap-1.5 mb-6 pb-2 border-b border-slate-100 dark:border-slate-800">
         <button
           id="pack-filter-all"
           onClick={() => setActiveFilter('all')}
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-tight transition-all cursor-pointer ${
-            activeFilter === 'all' ? 'bg-slate-900 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+            activeFilter === 'all' 
+              ? 'bg-slate-900 dark:bg-slate-800 text-white shadow-xs' 
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-850'
           }`}
         >
           All Items
@@ -162,7 +164,9 @@ export default function PackingChecklist() {
           id="pack-filter-grandparents"
           onClick={() => setActiveFilter('grandparents')}
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-tight transition-all flex items-center gap-1 cursor-pointer ${
-            activeFilter === 'grandparents' ? 'bg-rose-50 text-rose-700 border border-rose-100 shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+            activeFilter === 'grandparents' 
+              ? 'bg-rose-50 dark:bg-rose-950/30 text-rose-700 dark:text-rose-400 border border-rose-100 dark:border-rose-900/30 shadow-xs' 
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-850'
           }`}
         >
           <Heart className="w-3.5 h-3.5" /> Grandparents
@@ -171,7 +175,9 @@ export default function PackingChecklist() {
           id="pack-filter-parents"
           onClick={() => setActiveFilter('parents')}
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-tight transition-all flex items-center gap-1 cursor-pointer ${
-            activeFilter === 'parents' ? 'bg-blue-50 text-blue-700 border border-blue-100 shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+            activeFilter === 'parents' 
+              ? 'bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 border border-blue-100 dark:border-blue-900/30 shadow-xs' 
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-850'
           }`}
         >
           <Info className="w-3.5 h-3.5" /> Parents
@@ -180,7 +186,9 @@ export default function PackingChecklist() {
           id="pack-filter-kid8"
           onClick={() => setActiveFilter('kid8')}
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-tight transition-all flex items-center gap-1 cursor-pointer ${
-            activeFilter === 'kid8' ? 'bg-amber-50 text-amber-700 border border-amber-100 shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+            activeFilter === 'kid8' 
+              ? 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border border-amber-100 dark:border-amber-900/30 shadow-xs' 
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-850'
           }`}
         >
           <Sparkles className="w-3.5 h-3.5" /> Leo (8)
@@ -189,7 +197,9 @@ export default function PackingChecklist() {
           id="pack-filter-toddlers"
           onClick={() => setActiveFilter('toddlers')}
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-tight transition-all flex items-center gap-1 cursor-pointer ${
-            activeFilter === 'toddlers' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100 shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+            activeFilter === 'toddlers' 
+              ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/30 shadow-xs' 
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-850'
           }`}
         >
           <Footprints className="w-3.5 h-3.5" /> Girls (3 & 4)
@@ -198,7 +208,9 @@ export default function PackingChecklist() {
           id="pack-filter-general"
           onClick={() => setActiveFilter('general')}
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold tracking-tight transition-all cursor-pointer ${
-            activeFilter === 'general' ? 'bg-slate-300 text-slate-800 shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+            activeFilter === 'general' 
+              ? 'bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-white shadow-xs' 
+              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-850'
           }`}
         >
           General Shared
@@ -208,28 +220,28 @@ export default function PackingChecklist() {
       {/* Grid: Form & List */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Form left */}
-        <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 h-fit">
-          <h4 className="font-display font-semibold text-slate-900 text-sm mb-3">Add Custom Luggage Item</h4>
+        <div className="bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800 rounded-xl p-4 h-fit">
+          <h4 className="font-display font-semibold text-slate-900 dark:text-white text-sm mb-3">Add Custom Luggage Item</h4>
           <form onSubmit={handleAddItem} className="space-y-3">
             <div>
-              <label className="block text-[10px] font-mono uppercase text-slate-500 font-bold mb-1">Item Description</label>
+              <label className="block text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 font-bold mb-1">Item Description</label>
               <input
                 type="text"
                 required
                 placeholder="e.g., Waterproof sunscreen SPF 50"
                 value={newItemText}
                 onChange={(e) => setNewItemText(e.target.value)}
-                className="w-full text-xs border border-slate-200 bg-white rounded-lg px-3 py-2 outline-none focus:border-sky-500"
+                className="w-full text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-white rounded-lg px-3 py-2 outline-none focus:border-sky-500"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="block text-[10px] font-mono uppercase text-slate-500 font-bold mb-1">Category</label>
+                <label className="block text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 font-bold mb-1">Category</label>
                 <select
                   value={newCategory}
                   onChange={(e) => setNewCategory(e.target.value)}
-                  className="w-full text-xs border border-slate-200 bg-white rounded-lg px-2.5 py-2 outline-none focus:border-sky-500"
+                  className="w-full text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-white rounded-lg px-2.5 py-2 outline-none focus:border-sky-500 select-dark"
                 >
                   <option value="Health & Comfort">Health</option>
                   <option value="Logistics">Logistics</option>
@@ -241,11 +253,11 @@ export default function PackingChecklist() {
               </div>
 
               <div>
-                <label className="block text-[10px] font-mono uppercase text-slate-500 font-bold mb-1">Assign To</label>
+                <label className="block text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 font-bold mb-1">Assign To</label>
                 <select
                   value={newAssignee}
                   onChange={(e) => setNewAssignee(e.target.value as TravelerType | 'all')}
-                  className="w-full text-xs border border-slate-200 bg-white rounded-lg px-2.5 py-2 outline-none focus:border-sky-500"
+                  className="w-full text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-white rounded-lg px-2.5 py-2 outline-none focus:border-sky-500 select-dark"
                 >
                   <option value="all">Shared (All)</option>
                   <option value="grandparents">Grandparents</option>
@@ -259,7 +271,7 @@ export default function PackingChecklist() {
             <button
               type="submit"
               id="btn-add-packing-item"
-              className="w-full text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1 shadow-xs cursor-pointer"
+              className="w-full text-xs font-semibold text-white bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-750 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1 shadow-xs cursor-pointer"
             >
               <Plus className="w-3.5 h-3.5" /> Add to List
             </button>
@@ -269,10 +281,10 @@ export default function PackingChecklist() {
         {/* List right */}
         <div className="lg:col-span-2 space-y-2 max-h-[380px] overflow-y-auto pr-1">
           {filteredItems.length === 0 ? (
-            <div className="text-center py-10 border border-dashed border-slate-200 rounded-xl">
-              <CheckSquare className="w-8 h-8 text-slate-300 mx-auto mb-2" />
-              <p className="text-sm font-semibold text-slate-950">No packing items matching filter</p>
-              <p className="text-xs text-slate-500 mt-1">Select a different tab or add some custom items to get started!</p>
+            <div className="text-center py-10 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl">
+              <CheckSquare className="w-8 h-8 text-slate-300 dark:text-slate-650 mx-auto mb-2" />
+              <p className="text-sm font-semibold text-slate-950 dark:text-white">No packing items matching filter</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Select a different tab or add some custom items to get started!</p>
             </div>
           ) : (
             filteredItems.map((item) => (
@@ -281,8 +293,8 @@ export default function PackingChecklist() {
                 key={item.id}
                 className={`flex items-center justify-between gap-4 p-3 rounded-xl border transition-all duration-150 ${
                   item.packed 
-                    ? 'bg-emerald-50/10 border-emerald-100/50 text-slate-400' 
-                    : 'bg-white border-slate-100 hover:border-slate-200 hover:shadow-2xs'
+                    ? 'bg-emerald-50/10 dark:bg-emerald-950/10 border-emerald-100/50 dark:border-emerald-900/30 text-slate-400 dark:text-slate-500' 
+                    : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800/80 hover:border-slate-200 dark:hover:border-slate-700 hover:shadow-2xs'
                 }`}
               >
                 <button
@@ -293,13 +305,13 @@ export default function PackingChecklist() {
                   {item.packed ? (
                     <CheckSquare className="w-5 h-5 text-emerald-500 shrink-0" />
                   ) : (
-                    <Square className="w-5 h-5 text-slate-300 hover:text-slate-400 shrink-0" />
+                    <Square className="w-5 h-5 text-slate-300 dark:text-slate-700 hover:text-slate-400 dark:hover:text-slate-650 shrink-0" />
                   )}
                   <div>
-                    <span className={`text-sm font-medium ${item.packed ? 'line-through' : 'text-slate-800'}`}>
+                    <span className={`text-sm font-medium ${item.packed ? 'line-through' : 'text-slate-800 dark:text-slate-200'}`}>
                       {item.item}
                     </span>
-                    <span className="block text-[10px] text-slate-400 font-mono tracking-tight">
+                    <span className="block text-[10px] text-slate-400 dark:text-slate-500 font-mono tracking-tight">
                       {item.category}
                     </span>
                   </div>
@@ -310,7 +322,7 @@ export default function PackingChecklist() {
                   <button
                     id={`packing-btn-delete-${item.id}`}
                     onClick={() => handleDeleteItem(item.id)}
-                    className="p-1 text-slate-300 hover:text-red-500 rounded-lg hover:bg-red-50 transition-colors cursor-pointer"
+                    className="p-1 text-slate-300 hover:text-red-500 dark:text-slate-500 dark:hover:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors cursor-pointer"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                   </button>

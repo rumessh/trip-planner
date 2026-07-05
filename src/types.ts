@@ -9,7 +9,7 @@ export interface Traveler {
   notes: string[];
 }
 
-export type FocusGroup = 'kid8' | 'toddlers' | 'elder' | 'security' | 'dress-code' | 'general';
+export type FocusGroup = 'kid8' | 'toddlers' | 'security' | 'dress-code' | 'general';
 
 export interface Activity {
   id: string;

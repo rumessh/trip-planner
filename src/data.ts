@@ -7,9 +7,9 @@ export const TRAVELERS: Traveler[] = [
     type: 'grandparents',
     avatar: '🧓👵',
     notes: [
-      'Elder Strategy: Utilize wide, flat pathways and take advantage of benches.',
-      'Capitol: Free loaner wheelchairs are available inside the Visitor Center—ask staff in red jackets.',
-      'Lincoln Memorial: Skip the 87 steps! Elevator is on the lower-left ground side.'
+      'Relaxed pace: Enjoys beautiful historical architecture, gardens, and sightseeing.',
+      'Smithsonian: Prefer sitting in the quiet lounge areas or gardens surrounding the museums.',
+      'Central Park: Excellent spot to sit back, enjoy nature, and watch the kids play.'
     ]
   },
   {
@@ -86,16 +86,6 @@ export const ITINERARY: DayItinerary[] = [
         icon: 'Dinosaur'
       },
       {
-        id: 'd1-a3-elder',
-        time: '11:00 AM - 01:30 PM',
-        title: 'Elder Comfort Strategy',
-        description: 'Utilize the wide, flat pathways throughout the museum. Benches are available on every level for resting.',
-        focusType: 'elder',
-        focusText: '🧓 Grandparents: Ample benches on every level. Flat surfaces, elevator-accessible floors.',
-        location: 'National Museum of Natural History',
-        icon: 'Heart'
-      },
-      {
         id: 'd1-a4',
         time: '01:30 PM - 02:00 PM',
         title: 'Relaxed Lunch at Museum Cafe',
@@ -143,10 +133,9 @@ export const ITINERARY: DayItinerary[] = [
       {
         id: 'd2-a2',
         time: 'Capitol Tour',
-        title: 'U.S. Capitol Tour & Wheelchair Strategy',
-        description: 'Enjoy a historic tour of the Capitol. Red jackets indicate staff members who can provide free loaner wheelchairs.',
-        focusType: 'elder',
-        focusText: '🧓 Elder Strategy: Free loaner wheelchairs are available inside the Capitol. Just ask any staff member wearing a red jacket.',
+        title: 'U.S. Capitol Guided Tour',
+        description: 'Enjoy a historic tour of the U.S. Capitol. Explore the majestic Rotunda, Crypt, and National Statuary Hall with an expert guide.',
+        focusType: 'general',
         location: 'U.S. Capitol',
         icon: 'CheckSquare'
       },
@@ -174,8 +163,8 @@ export const ITINERARY: DayItinerary[] = [
         time: '02:30 PM - 04:00 PM',
         title: 'White House Photos at Lafayette Square',
         description: 'Take a Lyft XL to Lafayette Square (the park immediately north of the White House).',
-        focusType: 'elder',
-        focusText: '💡 Why this works: It is completely flat, heavily shaded by mature trees, and has lots of park benches. It offers the closest, safest view of the White House without exhausting walks.',
+        focusType: 'general',
+        focusText: '📸 Photo Spot: Lafayette Square is flat and heavily shaded, providing the closest and safest view of the White House for beautiful family pictures.',
         location: 'Lafayette Square (White House View)',
         icon: 'Camera'
       }
@@ -224,16 +213,6 @@ export const ITINERARY: DayItinerary[] = [
         focusType: 'general',
         location: 'Lincoln Memorial',
         icon: 'MapPin'
-      },
-      {
-        id: 'd3-a5',
-        time: '02:15 PM - 04:00 PM',
-        title: 'Lincoln Memorial Elevator Route',
-        description: 'Skip the 87 stone stairs! Head to the ground level on the lower-left side to find a clean, climate-controlled elevator.',
-        focusType: 'elder',
-        focusText: '🧓 Elder Strategy: Guide grandparents to the lower-left ground-level side of the monument to find a hidden elevator that goes straight into the main chamber.',
-        location: 'Lincoln Memorial Left Entrance',
-        icon: 'Heart'
       },
       {
         id: 'd3-a6',
@@ -387,10 +366,10 @@ export const ITINERARY: DayItinerary[] = [
       {
         id: 'd5-a5',
         time: '03:15 PM',
-        title: 'Mandatory Afternoon Nap/Rest Time',
-        description: 'Take a taxi back to the hotel for a mandatory afternoon rest and nap for the toddlers and grandparents to recharge.',
-        focusType: 'elder',
-        focusText: '🧓👧 Core Rest Strategy: Non-negotiable downtime. Essential for keeping kids and elders happy for the night view!',
+        title: 'Afternoon Rest & Recharge',
+        description: 'Take a taxi back to the hotel for a quiet afternoon rest to recharge the entire family before the sunset walk and dinner.',
+        focusType: 'general',
+        focusText: '😴 Recharge Break: Standard downtime for toddlers to nap and the family to rest up for an exciting evening in Brooklyn!',
         location: 'Hyatt Centric Times Square',
         icon: 'Moon'
       },

@@ -70,32 +70,32 @@ export default function QuickReference() {
   ];
 
   return (
-    <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm" id="quick-reference">
+    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-2xl p-6 shadow-sm transition-colors duration-300" id="quick-reference">
       <div className="mb-6">
-        <h3 className="text-xl font-display font-semibold text-slate-900">
+        <h3 className="text-xl font-display font-semibold text-slate-900 dark:text-white">
           Quick-Reference Cheat Sheets
         </h3>
-        <p className="text-slate-500 text-sm mt-0.5">
+        <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5">
           Essential guidelines, dress codes, security restrictions, and logistics at a glance.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {cards.map((card) => (
-          <div key={card.id} className={`p-5 rounded-2xl border ${card.bg} flex flex-col`} id={card.id}>
-            <div className="flex items-center gap-2.5 pb-3 border-b border-slate-200/40 mb-3">
-              <span className="p-1.5 bg-white rounded-lg shadow-2xs">
+          <div key={card.id} className={`p-5 rounded-2xl border ${card.bg} dark:bg-slate-950/45 dark:border-slate-800/80 flex flex-col`} id={card.id}>
+            <div className="flex items-center gap-2.5 pb-3 border-b border-slate-200/40 dark:border-slate-800/85 mb-3">
+              <span className="p-1.5 bg-white dark:bg-slate-900 rounded-lg shadow-2xs">
                 {card.icon}
               </span>
-              <h4 className="font-display font-semibold text-slate-900 text-sm">
+              <h4 className="font-display font-semibold text-slate-900 dark:text-white text-sm">
                 {card.title}
               </h4>
             </div>
 
             <ul className="space-y-2.5 flex-1">
               {card.items.map((item, index) => (
-                <li key={index} className="text-xs text-slate-700 leading-relaxed flex items-start gap-2">
-                  <CheckCircle className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
+                <li key={index} className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed flex items-start gap-2">
+                  <CheckCircle className="w-3.5 h-3.5 text-slate-400 dark:text-slate-600 shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
               ))}

@@ -109,14 +109,14 @@ export default function ExpenseTracker() {
       : 'All balances are perfectly settled!';
 
   return (
-    <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm" id="expense-tracker">
+    <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-2xl p-6 shadow-sm transition-colors duration-300" id="expense-tracker">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div>
-          <h3 className="text-xl font-display font-semibold text-slate-900 flex items-center gap-2">
+          <h3 className="text-xl font-display font-semibold text-slate-900 dark:text-white flex items-center gap-2">
             <Calculator className="w-5 h-5 text-sky-500" />
             Trip Budget & Expense Splitter
           </h3>
-          <p className="text-slate-500 text-sm mt-0.5">
+          <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5">
             Log hotel, minivan, and attraction bills. Automatically calculate shares between households.
           </p>
         </div>
@@ -124,7 +124,7 @@ export default function ExpenseTracker() {
         <button
           id="btn-reset-expenses"
           onClick={resetExpenses}
-          className="text-xs font-semibold text-slate-500 hover:text-red-500 bg-slate-50 hover:bg-red-50 px-3.5 py-1.5 rounded-lg border border-slate-100 hover:border-red-100 transition-colors self-start md:self-auto cursor-pointer"
+          className="text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-red-500 bg-slate-50 dark:bg-slate-950 hover:bg-red-50 px-3.5 py-1.5 rounded-lg border border-slate-100 dark:border-slate-800 hover:border-red-100 dark:hover:border-red-900/40 transition-colors self-start md:self-auto cursor-pointer"
         >
           Reset List
         </button>
@@ -132,32 +132,32 @@ export default function ExpenseTracker() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div className="bg-slate-900 text-white rounded-xl p-5 border border-slate-800">
+        <div className="bg-slate-900 dark:bg-slate-955 text-white rounded-xl p-5 border border-slate-800 dark:border-slate-850">
           <span className="block text-[10px] font-mono tracking-widest uppercase text-slate-400 font-bold">Total Trip Outlay</span>
           <span className="block text-3xl font-bold font-mono text-sky-400 mt-1">${totalSpend.toFixed(2)}</span>
           <span className="block text-xs text-slate-400 mt-1.5">Shared across 6 days of travel</span>
         </div>
 
-        <div className="bg-slate-50 border border-slate-100 rounded-xl p-5">
-          <span className="block text-[10px] font-mono tracking-widest uppercase text-slate-500 font-bold">Paid Breakdown</span>
+        <div className="bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800 rounded-xl p-5">
+          <span className="block text-[10px] font-mono tracking-widest uppercase text-slate-500 dark:text-slate-400 font-bold">Paid Breakdown</span>
           <div className="space-y-1.5 mt-2 text-xs">
-            <div className="flex justify-between font-semibold text-slate-700">
+            <div className="flex justify-between font-semibold text-slate-700 dark:text-slate-300">
               <span>👨 Parents:</span>
               <span className="font-mono">${parentsPaid.toFixed(2)}</span>
             </div>
-            <div className="flex justify-between font-semibold text-slate-700">
+            <div className="flex justify-between font-semibold text-slate-700 dark:text-slate-300">
               <span>👵 Grandparents:</span>
               <span className="font-mono">${grandparentsPaid.toFixed(2)}</span>
             </div>
           </div>
         </div>
 
-        <div className="bg-sky-50 border border-sky-100 text-sky-950 rounded-xl p-5 flex flex-col justify-between">
+        <div className="bg-sky-50 dark:bg-sky-950/20 border border-sky-100 dark:border-sky-900/30 text-sky-950 dark:text-sky-350 rounded-xl p-5 flex flex-col justify-between">
           <div>
-            <span className="block text-[10px] font-mono tracking-widest uppercase text-sky-700 font-bold flex items-center gap-1">
+            <span className="block text-[10px] font-mono tracking-widest uppercase text-sky-700 dark:text-sky-400 font-bold flex items-center gap-1">
               <Users className="w-3 h-3" /> Settlement Balance
             </span>
-            <p className="text-sm font-display font-semibold mt-2 text-slate-900 leading-snug">
+            <p className="text-sm font-display font-semibold mt-2 text-slate-900 dark:text-slate-200 leading-snug">
               {settlementText}
             </p>
           </div>
@@ -171,24 +171,24 @@ export default function ExpenseTracker() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Form left */}
-        <div className="bg-slate-50 border border-slate-100 rounded-xl p-5 h-fit">
-          <h4 className="font-display font-semibold text-slate-900 text-sm mb-3.5">Log Trip Bill / Ticket</h4>
+        <div className="bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800 rounded-xl p-5 h-fit">
+          <h4 className="font-display font-semibold text-slate-900 dark:text-white text-sm mb-3.5">Log Trip Bill / Ticket</h4>
           <form onSubmit={handleAddExpense} className="space-y-4">
             <div>
-              <label className="block text-[10px] font-mono uppercase text-slate-500 font-bold mb-1">Bill Name / Ticket Title</label>
+              <label className="block text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 font-bold mb-1">Bill Name / Ticket Title</label>
               <input
                 type="text"
                 required
                 placeholder="e.g., Jane's Carousel entry"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full text-xs border border-slate-200 bg-white rounded-lg px-3 py-2.5 outline-none focus:border-sky-500"
+                className="w-full text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-white rounded-lg px-3 py-2.5 outline-none focus:border-sky-500"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="block text-[10px] font-mono uppercase text-slate-500 font-bold mb-1">Cost ($ USD)</label>
+                <label className="block text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 font-bold mb-1">Cost ($ USD)</label>
                 <div className="relative">
                   <span className="absolute left-2.5 top-2.5 text-slate-400 text-xs">$</span>
                   <input
@@ -198,17 +198,17 @@ export default function ExpenseTracker() {
                     placeholder="25.00"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    className="w-full text-xs border border-slate-200 bg-white rounded-lg pl-6 pr-3 py-2.5 outline-none focus:border-sky-500 font-mono"
+                    className="w-full text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-white rounded-lg pl-6 pr-3 py-2.5 outline-none focus:border-sky-500 font-mono"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] font-mono uppercase text-slate-500 font-bold mb-1">Category</label>
+                <label className="block text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 font-bold mb-1">Category</label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value as any)}
-                  className="w-full text-xs border border-slate-200 bg-white rounded-lg px-2 py-2.5 outline-none focus:border-sky-500"
+                  className="w-full text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-white rounded-lg px-2 py-2.5 outline-none focus:border-sky-500 select-dark"
                 >
                   <option value="Activities">Activities</option>
                   <option value="Transport">Transport</option>
@@ -220,11 +220,11 @@ export default function ExpenseTracker() {
             </div>
 
             <div>
-              <label className="block text-[10px] font-mono uppercase text-slate-500 font-bold mb-1">Who Paid?</label>
+              <label className="block text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 font-bold mb-1">Who Paid?</label>
               <select
                 value={paidBy}
                 onChange={(e) => setPaidBy(e.target.value)}
-                className="w-full text-xs border border-slate-200 bg-white rounded-lg px-3 py-2.5 outline-none focus:border-sky-500"
+                className="w-full text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-white rounded-lg px-3 py-2.5 outline-none focus:border-sky-500 select-dark"
               >
                 <option value="Parents (Mom & Dad)">Parents (Mom & Dad)</option>
                 <option value="Grandpa & Grandma">Grandpa & Grandma</option>
@@ -232,11 +232,11 @@ export default function ExpenseTracker() {
             </div>
 
             <div>
-              <label className="block text-[10px] font-mono uppercase text-slate-500 font-bold mb-1">Split Method</label>
+              <label className="block text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 font-bold mb-1">Split Method</label>
               <select
                 value={splitMode}
                 onChange={(e) => setSplitMode(e.target.value as any)}
-                className="w-full text-xs border border-slate-200 bg-white rounded-lg px-3 py-2.5 outline-none focus:border-sky-500"
+                className="w-full text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-white rounded-lg px-3 py-2.5 outline-none focus:border-sky-500 select-dark"
               >
                 <option value="equal">Split 50/50 between households</option>
                 <option value="parents">Paid 100% by Parents</option>
@@ -247,7 +247,7 @@ export default function ExpenseTracker() {
             <button
               type="submit"
               id="btn-add-expense-item"
-              className="w-full text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 py-3 rounded-xl transition-all flex items-center justify-center gap-1 shadow-xs cursor-pointer"
+              className="w-full text-xs font-semibold text-white bg-slate-900 dark:bg-slate-850 hover:bg-slate-800 dark:hover:bg-slate-750 py-3 rounded-xl transition-all flex items-center justify-center gap-1 shadow-xs cursor-pointer"
             >
               <Plus className="w-4 h-4" /> Log Expense
             </button>
@@ -257,42 +257,42 @@ export default function ExpenseTracker() {
         {/* List right */}
         <div className="lg:col-span-2 space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
           {expenses.length === 0 ? (
-            <div className="text-center py-12 border border-dashed border-slate-200 rounded-xl">
-              <DollarSign className="w-8 h-8 text-slate-300 mx-auto mb-2" />
-              <p className="text-sm font-semibold text-slate-950">No expenses logged yet</p>
-              <p className="text-xs text-slate-500 mt-1">Add items like restaurant bills, Lyft fares, and snack runs.</p>
+            <div className="text-center py-12 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl">
+              <DollarSign className="w-8 h-8 text-slate-300 dark:text-slate-650 mx-auto mb-2" />
+              <p className="text-sm font-semibold text-slate-950 dark:text-white">No expenses logged yet</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Add items like restaurant bills, Lyft fares, and snack runs.</p>
             </div>
           ) : (
             expenses.map((exp) => (
               <div 
                 id={`expense-item-${exp.id}`}
                 key={exp.id}
-                className="flex items-center justify-between gap-4 p-4 rounded-xl border border-slate-100 bg-white hover:border-slate-200 hover:shadow-2xs transition-all duration-150 animate-fade-in"
+                className="flex items-center justify-between gap-4 p-4 rounded-xl border border-slate-100 dark:border-slate-800/85 bg-white dark:bg-slate-900 hover:border-slate-200 dark:hover:border-slate-700 hover:shadow-2xs transition-all duration-150 animate-fade-in"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-slate-50 border border-slate-100 rounded-lg text-slate-700">
-                    <DollarSign className="w-4 h-4 text-emerald-600" />
+                  <div className="p-2 bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 rounded-lg text-slate-700 dark:text-slate-300">
+                    <DollarSign className="w-4 h-4 text-emerald-600 dark:text-emerald-500" />
                   </div>
                   <div>
-                    <h5 className="text-sm font-semibold text-slate-900 leading-snug">{exp.title}</h5>
+                    <h5 className="text-sm font-semibold text-slate-900 dark:text-white leading-snug">{exp.title}</h5>
                     <p className="text-[10px] text-slate-400 font-medium mt-0.5 font-mono">
-                      Paid by: <span className="text-slate-600 font-semibold">{exp.paidBy.split(' ')[0]}</span>
+                      Paid by: <span className="text-slate-600 dark:text-slate-400 font-semibold">{exp.paidBy.split(' ')[0]}</span>
                       <span className="mx-1">•</span> 
-                      Split: <span className="text-slate-600 font-semibold">{exp.splitBetween.length === 1 ? 'Individual' : '50/50 Share'}</span>
+                      Split: <span className="text-slate-600 dark:text-slate-400 font-semibold">{exp.splitBetween.length === 1 ? 'Individual' : '50/50 Share'}</span>
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <div className="text-right">
-                    <span className="block text-sm font-bold font-mono text-slate-950">${exp.amount.toFixed(2)}</span>
-                    <span className="block text-[9px] text-slate-400 font-mono">{exp.date}</span>
+                    <span className="block text-sm font-bold font-mono text-slate-950 dark:text-white">${exp.amount.toFixed(2)}</span>
+                    <span className="block text-[9px] text-slate-400 dark:text-slate-500 font-mono">{exp.date}</span>
                   </div>
                   
                   <button
                     id={`expense-btn-delete-${exp.id}`}
                     onClick={() => handleDeleteExpense(exp.id)}
-                    className="p-1.5 text-slate-300 hover:text-red-500 rounded-lg hover:bg-red-50 transition-colors cursor-pointer"
+                    className="p-1.5 text-slate-300 hover:text-red-500 dark:text-slate-500 dark:hover:text-red-400 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors cursor-pointer"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                   </button>
