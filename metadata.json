@@ -1,0 +1,6 @@
+{
+  "name": "East Coast Family Adventure Planner",
+  "description": "An interactive, multi-generational travel planner and active companion for a 6-day family adventure in Washington D.C., New Jersey, and New York City.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
