@@ -74,41 +74,9 @@ export default function App() {
     localStorage.setItem('family_eastcoast_journal', JSON.stringify(updated));
   };
 
-  // Dynamic Destination Visual lookup for Day Banner
-  const currentItineraryDay = ITINERARY.find(d => d.dayNumber === selectedDay);
-  const activeDestination = currentItineraryDay?.destination || 'Washington D.C.';
-  const activeDayTitle = currentItineraryDay?.title || '';
-
-  const getDestinationInfo = (dest: string) => {
-    switch (dest) {
-      case 'Washington D.C.':
-        return {
-          image: 'https://images.unsplash.com/photo-1524222717473-730000096953?auto=format&fit=crop&w=1200&q=80',
-          desc: "Explore the historic avenues of our nation's capital. From world-class museum exhibitions to neoclassical monuments, Day " + selectedDay + " features scenic strolls and educational highlights for all ages."
-        };
-      case 'New Jersey':
-        return {
-          image: 'https://images.unsplash.com/photo-1590050752117-238cb0612b1b?auto=format&fit=crop&w=1200&q=80',
-          desc: "Marvel at the majestic Swaminarayan Akshardham temple in Robbinsville, NJ. Hand-carved by master artisans out of pristine white Italian Carrara marble, it offers an atmosphere of tranquility and awe-inspiring architectural wonder."
-        };
-      case 'New York City':
-        return {
-          image: 'https://images.unsplash.com/photo-1524008279394-3aed4643b1d5?auto=format&fit=crop&w=1200&q=80',
-          desc: "Experience the vibrant energy and iconic landmarks of Manhattan. From the bustling streets of Times Square and beautiful pathways of Central Park to scenic waterfront ferry cruises, discover the best of NYC."
-        };
-      default:
-        return {
-          image: 'https://images.unsplash.com/photo-1524222717473-730000096953?auto=format&fit=crop&w=1200&q=80',
-          desc: ''
-        };
-    }
-  };
-
-  const { image: destinationImage, desc: destinationDescription } = getDestinationInfo(activeDestination);
-  const featuredStops = currentItineraryDay?.activities.slice(0, 3) || [];
 
   return (
-    <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased pb-12 transition-colors duration-300" id="app-container">
+    <div className={`min-h-screen bg-slate-50/50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased pb-12 transition-colors duration-300 ${theme === 'dark' ? 'dark' : ''}`} id="app-container">
       
       {/* Header Bar */}
       <header className="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800/80 sticky top-0 z-50 shadow-2xs transition-colors duration-300" id="app-header">
@@ -214,58 +182,6 @@ export default function App() {
         {activeTab === 'itinerary' && (
           <div className="space-y-6" id="itinerary-tab-wrapper">
             
-            {/* Scenic Destination Hero Banner */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-2xl overflow-hidden shadow-2xs flex flex-col md:flex-row relative transition-all duration-300" id="destination-hero-banner">
-              {/* Left: Beautiful stock photo with dynamic text overlay */}
-              <div className="md:w-3/5 h-48 md:h-56 relative overflow-hidden shrink-0">
-                <img 
-                  src={destinationImage} 
-                  alt={activeDestination} 
-                  className="w-full h-full object-cover transition-all duration-1000 ease-in-out hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950 via-slate-950/45 to-transparent" />
-                <div className="absolute bottom-4 left-6 text-white pr-4">
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-sky-400 px-2 py-0.5 bg-sky-950/80 border border-sky-800/40 rounded-md">
-                    Day {selectedDay} Destination Visual
-                  </span>
-                  <h3 className="text-xl md:text-2xl font-display font-bold text-white mt-1.5 tracking-tight">
-                    {activeDestination}
-                  </h3>
-                  <p className="text-[11px] text-slate-300 mt-1 line-clamp-2 leading-relaxed max-w-md">
-                    {destinationDescription}
-                  </p>
-                </div>
-              </div>
-
-              {/* Right: List of main featured stops for this day */}
-              <div className="flex-1 p-5 flex flex-col justify-between">
-                <div>
-                  <h4 className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                    Day {selectedDay} Featured Activities
-                  </h4>
-                  <div className="mt-2.5 space-y-2">
-                    {featuredStops.length === 0 ? (
-                      <p className="text-xs text-slate-400 italic">No scheduled activities for this day yet.</p>
-                    ) : (
-                      featuredStops.map((stop, idx) => (
-                        <div key={stop.id || idx} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                          <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
-                          <span className="font-semibold text-slate-800 dark:text-slate-200 line-clamp-1">{stop.title}</span>
-                          <span className="text-slate-400 dark:text-slate-500 font-mono text-[10px] shrink-0 ml-auto">{stop.time}</span>
-                        </div>
-                      ))
-                    )}
-                  </div>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
-                  <span className="font-medium font-mono">Exploring East Coast</span>
-                  <span className="font-semibold text-sky-500 dark:text-sky-400 truncate max-w-[180px]">{activeDayTitle}</span>
-                </div>
-              </div>
-            </div>
-
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start" id="itinerary-map-section">
             
             {/* Left: Schedule Timeline */}
